@@ -1,0 +1,52 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": ["plugin:react/recommended", "airbnb", "plugin:import/typescript", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint"],
+  "rules": {
+    // I want to be able to use these
+    "no-console": "off",
+    "no-debugger": "off",
+    // I want to use single quotes when defining attributes for React elements
+    "jsx-quotes": "off",
+    // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-use-before-define.md#how-to-use
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
+    "react/jsx-filename-extension": [ "warn", {"extensions": [".tsx"]} ],
+    // No longer necessary since React 17
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    // I don't need Eslint warning me about missing extensions of these files
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+   ]
+  },
+  // Tell Eslint to use Webpack resolver to resolve paths
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.config.js"
+      }
+    }
+  }
+}

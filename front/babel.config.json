@@ -1,0 +1,13 @@
+{
+  "presets": [
+    "@babel/preset-env",
+    [
+      "@babel/preset-react",
+      {
+        "runtime": "automatic" // enable new jsx transformation
+      }
+    ],
+    "@babel/preset-typescript"
+  ],
+  "plugins": ["@emotion"] // source-maps along other things for styled components
+}
